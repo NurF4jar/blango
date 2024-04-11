@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django import template
 from django.utils.safestring import mark_safe
-from django.utils.html import format_html
+from django.utils.html import format_html, escape
 from blog.models import Post
 
 user_model = get_user_model()
@@ -42,7 +42,6 @@ def endrow():
 @register.simple_tag
 def col(extra_classes=""):
     return format_html('<div class="col {}">', extra_classes)
-
 
 @register.simple_tag
 def endcol():
